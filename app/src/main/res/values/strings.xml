@@ -133,5 +133,6 @@
     <string name="title_activity_main__owner_ui1">Main_OwnerUI1</string>
     <string name="title_activity_bottom_navigation__delivery">bottomNavigation_Delivery</string>
     <string name="title_activity_maps_main">Map</string>
+    <string name="title_activity_main__ui__dp">Main_UI_DP</string>
 
 </resources>

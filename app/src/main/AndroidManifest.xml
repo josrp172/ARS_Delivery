@@ -134,13 +134,17 @@
         <activity
             android:name=".BusinessOwner.DataManipulationUI.Delivery.addDelivery_step4_MAPS"
             android:label="@string/title_activity_add_delivery_step4__maps" />
-        <activity android:name=".BusinessOwner.DataManipulationUI.Delivery.customNavigation_Delivery"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".BusinessOwner.DataManipulationUI.Delivery.customNavigation_Delivery"
+            android:screenOrientation="portrait" />
         <activity android:name=".BusinessOwner.DataManipulationUI.Delivery.addDelivery_step5_COURIER" />
         <activity
             android:name=".BusinessOwner.MainUI.Maps_main"
-            android:label="@string/title_activity_maps_main"></activity>
+            android:label="@string/title_activity_maps_main" />
+        <activity
+            android:name=".Personnel.Main_UI_DP"
+            android:label="@string/title_activity_main__ui__dp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

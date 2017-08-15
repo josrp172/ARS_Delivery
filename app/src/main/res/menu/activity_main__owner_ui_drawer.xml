@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:title="Main" />
+
+        <item
+            android:id="@+id/nav_delivery"
+            android:title="Delivery" />
+        <!-- if you want to add an icon at the left
+              android:icon="@drawable/ic_menu_camera"
+            -->
+        <item
+            android:id="@+id/nav_transaction"
+            android:title="Transaction" />
+        <item
+            android:id="@+id/nav_customer"
+            android:title="Customer" />
+        <item
+            android:id="@+id/nav_products"
+            android:title="Products" />
+        <item
+            android:id="@+id/nav_vehicles"
+            android:title="Vehicles" />
+        <item
+            android:id="@+id/nav_deliveryPersonnel"
+            android:title="Delivery Personnel" />
+
+    </group>
+
+    <item android:title="Business Information">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_logOut"
+        android:title="Log Out" />
+</menu>

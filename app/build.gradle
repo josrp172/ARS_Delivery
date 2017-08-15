@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.thesis.tipqc.ars_delivery"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        multiDexEnabled true
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java/Results']
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.jpardogo.materialtabstrip:library:1.1.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // compile('org.optaplanner:optaplanner-core:6.3.0-SNAPSHOT') {
+
+    //     exclude group: 'xmlpull'
+
+    //    exclude group: 'org.drools'
+
+    //    exclude group: 'com.thoughtworks.xstream'
+
+    //    exclude group: 'commons-io'
+
+    //    exclude group: 'org.apache.commons'
+
+    // todo exclude, didn't work on optaplanner 6.1.0
+
+    //exclude group: 'org.kie'
+
+    // }
+    compile('com.thoughtworks.xstream:xstream:1.4.6') {
+        force = true
+        transitive = false
+    }
+    compile('commons-io:commons-io:2.5') {
+        force = true
+        transitive = false
+    }
+    compile('org.kie:kie-api:6.3.0.Final') {
+        force = true
+    }
+    compile('com.google.guava:guava:18.0') {
+        force = true
+    }
+    compile('org.apache.commons:commons-lang3:3.6') {
+        force = true
+    }
+    compile('com.afollestad.material-dialogs:commons:0.9.4.5') {
+        exclude group: 'com.android.support'
+    }
+    compile files('libs/optaplanner-core-6.3.0.Final-redhat-5.jar')
+    compile files('libs/gson-2.3.1.jar')
+    compile 'com.aurelhubert:ahbottomnavigation:2.0.6'
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.android.gms:play-services:11.0.1'
+    compile 'com.google.firebase:firebase-database:11.0.1'
+    compile 'com.google.firebase:firebase-auth:11.0.1'
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
+    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:cardview-v7:26.+'
+    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.akexorcist:googledirectionlibrary:1.0.5'
+    compile 'org.slf4j:slf4j-nop:1.7.25'
+    compile 'com.google.maps:google-maps-services:0.1.20'
+    compile 'com.google.maps.android:android-maps-utils:0.5'
+    compile 'com.github.vajro:MaterialDesignLibrary:1.6@aar'
+    compile 'com.github.franmontiel:FullScreenDialog:1.0.1'
+    compile 'com.github.droidbyme:DroidDialog:c6decc7167'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
+    testCompile 'junit:junit:4.12'
+}
+apply plugin: 'com.google.gms.google-services'

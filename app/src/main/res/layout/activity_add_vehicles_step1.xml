@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BusinessOwner.DataManipulationUI.Vehicle.addVehicles_step1"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <ImageSwitcher
+        android:id="@+id/imgType"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="325dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgType"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgType"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView19"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Vehicle Name"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:layout_constraintLeft_creator="1"-->
+                    <!--tools:layout_constraintTop_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtVehicleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Vehicle Name"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textView19"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="15"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBaseline_creator="1"
+                        tools:layout_constraintRight_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView25"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Licence Plate"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@+id/txtLicencePlate"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--tools:layout_constraintBaseline_creator="1"-->
+                    <!--tools:layout_constraintLeft_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtLicencePlate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.73"
+                        android:ems="10"
+                        android:hint="Licence Plate"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="7"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintRight_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Type"
+                        android:textSize="18sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19"
+                        tools:layout_constraintLeft_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+
+                    <Spinner
+                        android:id="@+id/spnType"
+                        android:layout_width="218dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="3.15"
+                        app:layout_constraintBottom_toTopOf="@+id/textView25"
+                        app:layout_constraintHorizontal_bias="0.987"
+                        app:layout_constraintLeft_toRightOf="@+id/textView24"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtVehicleName"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintRight_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView26"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="10dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Miles Per Gallon"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintRight_toLeftOf="@+id/txtMpg"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/txtLicencePlate"-->
+                    <!--tools:layout_constraintRight_creator="1"-->
+                    <!--tools:layout_constraintTop_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtMpg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1.42"
+                        android:ems="10"
+                        android:hint="Miles Per Gallon"
+                        android:inputType="number"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textView26"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="20"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBaseline_creator="1"
+                        tools:layout_constraintRight_creator="1" />
+
+                    <Button
+                        android:id="@+id/btnComputeMPG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="0.12"
+                        android:text="Compute MPG"
+                        android:textSize="8sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:layout_editor_absoluteX="169dp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView27"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Volume Capacity"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@+id/txtVolume"-->
+                    <!--app:layout_constraintRight_toLeftOf="@+id/txtVolume"-->
+                    <!--tools:layout_constraintBaseline_creator="1"-->
+                    <!--tools:layout_constraintRight_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.33"
+                        android:ems="10"
+                        android:hint="Volume Capacity"
+                        android:inputType="number"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtMpg"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="20"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintRight_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+
+                    <Button
+                        android:id="@+id/btnComputeVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.22"
+                        android:text="COMPUTE VOLUME"
+                        android:textSize="8sp"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="click"
+                        android:text="Cancel"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        tools:layout_constraintRight_creator="1" />
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="7"
+                        android:layout_row="0"
+                        android:onClick="click"
+                        android:text="ADD"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        tools:layout_constraintLeft_creator="1" />
+                </GridLayout>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

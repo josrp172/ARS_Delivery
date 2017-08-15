@@ -1,0 +1,27 @@
+firebaseAuth.currentUser() == null
+    finish(); //close this
+    startActivity(new Intent(this, LoginActivity.class))
+
+
+
+    //DatabaseReference pushedPostRef = ref.push();
+    //String key = pushedPostRef.getKey();
+
+
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+
+///////////////////////////
+things to do
+add finish button in product, vehicles to go back from the main menu
+
+    android:fitsSystemWindows="true"
+
+
+
+SparseArray          <Integer, Object>
+SparseBooleanArray   <Integer, Boolean>
+SparseIntArray       <Integer, Integer>
+SparseLongArray      <Integer, Long>
+LongSparseArray      <Long, Object>
+LongSparseLongArray  <Long, Long>

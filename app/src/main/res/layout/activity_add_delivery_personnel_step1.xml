@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BusinessOwner.DataManipulationUI.Courier.addDeliveryPersonnel_step1">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Add your Courier"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="443dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView16"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView17"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.5"-->
+                    <!--android:text="Email: "-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="@+id/lblEmailMain"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--tools:layout_constraintBottom_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/lblEmailMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Email Address"
+                        android:inputType="textEmailAddress"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView18"
+                        app:layout_constraintHorizontal_bias="0.789"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView18"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.5"-->
+                    <!--android:text="Password:"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBottom_toTopOf="@+id/txtFirstName"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--tools:layout_constraintBottom_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.49"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lblEmailMain"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="15"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView20"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="First Name:"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBottom_toTopOf="@+id/txtLastName"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--tools:layout_constraintBottom_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="246.81"
+                        android:ems="10"
+                        android:hint="First Name"
+                        android:inputType="textPersonName"
+                        android:textSize="12sp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textView20"
+                        app:layout_constraintHorizontal_bias="0.846"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="15"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBaseline_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView23"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Last Name:"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--app:layout_constraintVertical_bias="0.529" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.58"
+                        android:ems="10"
+                        android:hint="Last Name"
+                        android:inputType="textPersonName"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txtMobileNum"
+                        app:layout_constraintLeft_toLeftOf="@+id/txtFirstName"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="15"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintLeft_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView21"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Mobile Phone: "-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/textView23"-->
+                    <!--tools:layout_constraintTop_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtMobileNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.04"
+                        android:ems="10"
+                        android:hint="Mobile Number"
+                        android:inputType="number"
+                        android:textSize="14dp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView21"
+                        app:layout_constraintLeft_toRightOf="@+id/textView21"
+                        app:layout_constraintTop_toTopOf="@+id/textView21"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_maxCharacters="12"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintLeft_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView22"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="Address"-->
+                    <!--android:textSize="18sp"-->
+                    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/textView21"-->
+                    <!--tools:layout_constraintTop_creator="1" />-->
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/txtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Address"
+                        android:inputType="textMultiLine"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView22"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView22"
+                        app:met_baseColor="@android:color/black"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
+                        app:met_singleLineEllipsis="true"
+                        tools:layout_constraintBottom_creator="1"
+                        tools:layout_constraintTop_creator="1" />
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="click"
+                    android:text="NEXT"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:layout_constraintBottom_creator="1"
+                    tools:layout_constraintRight_creator="1" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin1"
+    android:paddingLeft="@dimen/activity_horizontal_margin1"
+    android:paddingRight="@dimen/activity_horizontal_margin1"
+    android:paddingTop="@dimen/activity_vertical_margin1"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imgProfilePicMain"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.57"
+        android:adjustViewBounds="true"
+        android:paddingTop="@dimen/nav_header_vertical_spacing1"
+        android:scaleType="fitCenter"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/lblNameMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="@dimen/nav_header_vertical_spacing1"
+        android:text="Android Studio"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/lblEmailMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="android.studio@android.com" />
+
+</LinearLayout>

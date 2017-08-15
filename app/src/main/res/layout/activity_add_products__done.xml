@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BusinessOwner.DataManipulationUI.Product.addProducts_DONE">
+
+    <ImageView
+        android:id="@+id/imgProductPic"
+        android:layout_width="0dp"
+        android:layout_height="209dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="107dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cast_abc_scrubber_control_off_mtrl_alpha"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_width="284dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="PRODUCT NAME"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblPrice"
+        android:layout_width="116dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="PRICE"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgProductPic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblName"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/lblDescription"
+        android:layout_marginStart="2dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintLeft_toLeftOf="@+id/lblDescription" />
+
+    <TextView
+        android:id="@+id/lblDescription"
+        android:layout_width="0dp"
+        android:layout_height="122dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        tools:layout_constraintLeft_creator="1" />
+
+    <TextView
+        android:id="@+id/lblStock"
+        android:layout_width="64dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="16dp"
+        android:text="Stock: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imgProductPic"
+        app:layout_constraintRight_toRightOf="@+id/lblName"
+        app:layout_constraintTop_toBottomOf="@+id/lblName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+</android.support.constraint.ConstraintLayout>

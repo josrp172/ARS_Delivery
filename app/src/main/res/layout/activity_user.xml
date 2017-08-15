@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.thesis.tipqc.ars_delivery.BusinessOwner.User">
+
+    <Button
+        android:id="@+id/btnDelivery"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:text="DELIVERY PERSONNEL"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="119dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgProfilePicMain"
+        android:layout_width="151dp"
+        android:layout_height="153dp"
+        app:srcCompat="@mipmap/ic_launcher_round"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="29dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        />
+
+    <Button
+        android:id="@+id/btnOwner"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="79dp"
+        android:onClick="btnClick"
+        android:text="BUSINESS OWNER"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDelivery"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfilePicMain"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+</android.support.constraint.ConstraintLayout>

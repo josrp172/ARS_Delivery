@@ -5,14 +5,24 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI.Main_OwnerUI;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI.ownerLogin;
 import com.thesis.tipqc.ars_delivery.R;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._OBJECTS;
@@ -90,6 +100,10 @@ public class addProducts_step2 extends AppCompatActivity {
         }
     }
 
+
+    MaterialDialog md;
+    final FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageReference, imageFolder;
     public void saveInformation(){
         String businessKey = ownerLogin.business.getBusinessKey(); //_OBJECTS.session.getBusinessKey(); //must not be null
         ref = database.getReference("Business/"+businessKey);
@@ -107,13 +121,42 @@ public class addProducts_step2 extends AppCompatActivity {
         _OBJECTS.session.setProductKey(productKey);
 
 
-        //Joseph New (Upload products pic image while loading)
-        Intent i = new Intent(getApplicationContext(), __Loader.class);
-        i.putExtra("storageFolder", "Products");
-        i.putExtra("keyName", productKey);
-        i.putExtra("filePath", filePath.toString());
-        i.putExtra("photoPicture", bitmap1.toString());
-        i.putExtra("currentLoadActivity", "addProducts_DONE");
-        startActivity(i);
+        md = new MaterialDialog.Builder(this)
+                .title("Saving Product")
+                .content("Uploading Product Information to the database")
+                .progress(false, 100, true)
+                .cancelable(false)
+                .show();
+
+        storageReference = storage.getReference();
+        imageFolder = storageReference.child("Products");
+        StorageReference images = imageFolder.child(productKey);
+        images.putFile(filePath)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        md.dismiss();
+
+                        _OBJECTS.session.setCurrentActivity("Delivery Personnel");
+                        Intent i = new Intent(getApplicationContext(), Main_OwnerUI.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0*taskSnapshot.getBytesTransferred())/ taskSnapshot.getTotalByteCount();
+                        md.setProgress((int)progress);
+                    }
+                });
+
     }
 }

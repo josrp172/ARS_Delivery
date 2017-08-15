@@ -14,13 +14,21 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI.Main_OwnerUI;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI.ownerLogin;
 import com.thesis.tipqc.ars_delivery.R;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._OBJECTS;
@@ -139,6 +147,11 @@ public class addDeliveryPersonnel_step2 extends AppCompatActivity {
         //end
     }
 
+
+    MaterialDialog md;
+    final FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageReference, imageFolder;
+
     //save information without the need of authentication
     private void saveInformation(String userID){
         addDeliveryPersonnel_step1.courier.setCourierKey(userID);
@@ -148,13 +161,42 @@ public class addDeliveryPersonnel_step2 extends AppCompatActivity {
         ref.child(userID).setValue(addDeliveryPersonnel_step1.courier);
 
 
-        //Joseph New (Upload Delivery personnel profile pic image while loading)
-        Intent i = new Intent(getApplicationContext(), __Loader.class);
-        i.putExtra("storageFolder", "Delivery Personnel");
-        i.putExtra("keyName", userID);
-        i.putExtra("filePath", filePath.toString());
-        i.putExtra("currentLoadActivity", "addDeliveryPersonnel_DONE");
-        startActivity(i);
+        md = new MaterialDialog.Builder(this)
+                .title("Register Courier")
+                .content("Creating your Account...")
+                .progress(false, 100, true)
+                .cancelable(false)
+                .show();
+
+        storageReference = storage.getReference();
+        imageFolder = storageReference.child("Delivery Personnel");
+        StorageReference images = imageFolder.child(userID);
+        images.putFile(filePath)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        md.dismiss();
+
+                        _OBJECTS.session.setCurrentActivity("Delivery Personnel");
+                        Intent i = new Intent(getApplicationContext(), Main_OwnerUI.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0*taskSnapshot.getBytesTransferred())/ taskSnapshot.getTotalByteCount();
+                        md.setProgress((int)progress);
+                    }
+                });
     }
 
 

@@ -136,10 +136,6 @@ public class __Loader extends AppCompatActivity {
                                 i = new Intent(getApplicationContext(), step4_adminObligation.class);
                             }else if(currentLoadActivity.equals("step6_ownerProfilePic")){
                                 i = new Intent(getApplicationContext(), step7_doneRegistration.class);
-                            }else if(currentLoadActivity.equals("addProducts_DONE")){
-                                i = new Intent(getApplicationContext(), addProducts_DONE.class);
-                            }else if(currentLoadActivity.equals("addDeliveryPersonnel_DONE")){
-                                i = new Intent(getApplicationContext(), addDeliveryPersonnel_DONE.class);
                             }
                             startActivity(i);
                             finish();

@@ -2,7 +2,6 @@ package com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,8 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.franmontiel.fullscreendialog.FullScreenDialogFragment;
-import com.gc.materialdesign.widgets.Dialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,11 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._Business;
+import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._DeliveryPersonnel;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._OBJECTS;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._Owner;
+import com.thesis.tipqc.ars_delivery.Personnel.Main_UI_DP;
 import com.thesis.tipqc.ars_delivery.R;
 import com.thesis.tipqc.ars_delivery.BusinessOwner.RegisterBusiness.step1_register_owner;
-import com.thesis.tipqc.ars_delivery.BusinessOwner.__Loader;
 
 public class ownerLogin extends AppCompatActivity {
     private Button btnSignIn, btnRegister;
@@ -38,7 +36,8 @@ public class ownerLogin extends AppCompatActivity {
 
     public static _Business business = new _Business();
     public static _Owner owner = new _Owner();
-    MaterialDialog.Builder m;
+    public static _DeliveryPersonnel courier = new _DeliveryPersonnel();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +81,7 @@ public class ownerLogin extends AppCompatActivity {
         }
     }
 
-
+    FirebaseUser user;
     private void authentication(){
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -93,33 +92,17 @@ public class ownerLogin extends AppCompatActivity {
                             //Joseph New run background ------------------------------------
                             //converting image run in background
                             //do stuff
-                            FirebaseUser user = task.getResult().getUser();
-
+                           user = task.getResult().getUser();
                             ref = database.getReference("User/"+user.getUid());
 
                             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    ownerLogin.owner = dataSnapshot.getValue(_Owner.class);
-
-                                    String businessKey = ownerLogin.owner.getBusinessKey();
-                                    _OBJECTS.session.setBusinessKey(businessKey);
-                                    ref1 = database.getReference("Business/"+businessKey);
-                                    ref1.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(DataSnapshot dataSnapshot) {
-                                            ownerLogin.business = dataSnapshot.getValue(_Business.class);
-                                            _OBJECTS.session.setCurrentActivity("Main");
-                                            Intent i = new Intent(getApplicationContext(), Main_OwnerUI.class);
-                                            startActivity(i);
-                                        }
-
-                                        @Override
-                                        public void onCancelled(DatabaseError databaseError) {
-
-                                        }
-                                    });
-
+                                    if(dataSnapshot.hasChild("firstName")){
+                                        adminLogin(dataSnapshot);
+                                    }else {
+                                        courierLogin(user);
+                                    }
                                 }
 
                                 @Override
@@ -139,6 +122,63 @@ public class ownerLogin extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+
+    public void adminLogin(DataSnapshot dataSnapshot){
+        owner = dataSnapshot.getValue(_Owner.class);
+        String businessKey = owner != null ? owner.getBusinessKey() : null;
+        _OBJECTS.session.setBusinessKey(businessKey);
+
+        ref1 = database.getReference("Business/" + businessKey);
+        ref1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                business = dataSnapshot.getValue(_Business.class);
+                _OBJECTS.session.setCurrentActivity("Main");
+                Intent i = new Intent(getApplicationContext(), Main_OwnerUI.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+    public void courierLogin(FirebaseUser user){
+        ref = database.getReference("Delivery Personnel/"+user.getUid());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                courier = dataSnapshot.getValue(_DeliveryPersonnel.class);
+                String businessKey = courier != null ? courier.getBusinessKey() : null;
+                _OBJECTS.session.setBusinessKey(businessKey);
+
+                ref1 = database.getReference("Business/" + businessKey);
+                ref1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        business = dataSnapshot.getValue(_Business.class);
+                        _OBJECTS.session.setCurrentActivity("Main");
+                        Intent i = new Intent(getApplicationContext(), Main_UI_DP.class);
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

@@ -12,9 +12,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.thesis.tipqc.ars_delivery.BusinessOwner.MainUI.ownerLogin;
+import com.thesis.tipqc.ars_delivery.BusinessOwner.Objects._OBJECTS;
+import com.thesis.tipqc.ars_delivery.R;
 
 public class Main_UI_DP extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView lblEmail, lblName;
+    private ImageView imgProfilePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +49,18 @@ public class Main_UI_DP extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //added
+        View header = navigationView.getHeaderView(0);
+
+        //end
+        lblEmail = header.findViewById(R.id.lblEmailMain);
+        lblName = header.findViewById(R.id.lblNameMain);
+        imgProfilePic = header.findViewById(R.id.imgProfilePicMain);
+
+        lblName.setText(ownerLogin.courier.getFirstName()+" "+ownerLogin.courier.getLastName());
+        lblEmail.setText(ownerLogin.courier.getEmail());
+        //_OBJECTS.storageDatabase.getFileFromDatabase(getApplicationContext(),"Delivery Personnel",ownerLogin.courier,imgProfilePic, null);
     }
 
     @Override
